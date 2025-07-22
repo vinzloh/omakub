@@ -7,3 +7,9 @@ tar -xf lazydocker.tar.gz lazydocker
 sudo install lazydocker /usr/local/bin
 rm lazydocker.tar.gz lazydocker
 cd -
+
+systemctl --user enable --now podman.socket
+
+echo 'alias docker=podman' >>~/.zshenv
+echo 'export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock' >>~/.zshenv
+echo 'alias lzd=lazydocker' >>~/.zshenv

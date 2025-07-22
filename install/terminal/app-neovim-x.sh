@@ -10,7 +10,7 @@ rm -rf nvim-linux-x86_64 nvim.tar.gz
 cd -
 
 # Install luarocks and tree-sitter-cli to resolve lazyvim :checkhealth warnings
-sudo apt install -y luarocks tree-sitter-cli
+sudo apt install -y luarocks # tree-sitter-cli
 
 # Only attempt to set configuration if Neovim has never been run
 if [ ! -d "$HOME/.config/nvim" ]; then
@@ -23,11 +23,17 @@ if [ ! -d "$HOME/.config/nvim" ]; then
   mkdir -p ~/.config/nvim/plugin/after
   cp ~/.local/share/omakub/configs/neovim/transparency.lua ~/.config/nvim/plugin/after/
 
-  # Default to Tokyo Night theme
-  cp ~/.local/share/omakub/themes/tokyo-night/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+  # Default to Catppuccin theme
+  cp ~/.local/share/omakub/themes/catppuccin/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 
-  # Turn off animated scrolling
-  cp ~/.local/share/omakub/configs/neovim/snacks-animated-scrolling-off.lua ~/.config/nvim/lua/plugins/
+  # Snacks tweaks
+  cp ~/.local/share/omakub/configs/neovim/snacks.lua ~/.config/nvim/lua/plugins/
+
+  # Git blame
+  cp ~/.local/share/omakub/configs/neovim/git-blame.lua ~/.config/nvim/lua/plugins/
+
+  # package.json info
+  cp ~/.local/share/omakub/configs/neovim/package-json-info.lua ~/.config/nvim/lua/plugins/
 
   # Turn off relative line numbers
   echo "vim.opt.relativenumber = false" >>~/.config/nvim/lua/config/options.lua
