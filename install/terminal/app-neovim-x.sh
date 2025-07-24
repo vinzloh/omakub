@@ -32,9 +32,6 @@ if [ ! -d "$HOME/.config/nvim" ]; then
   # Git blame
   cp ~/.local/share/omakub/configs/neovim/git-blame.lua ~/.config/nvim/lua/plugins/
 
-  # package.json info
-  cp ~/.local/share/omakub/configs/neovim/package-json-info.lua ~/.config/nvim/lua/plugins/
-
   # Turn off relative line numbers
   echo "vim.opt.relativenumber = false" >>~/.config/nvim/lua/config/options.lua
 fi
