@@ -1,3 +1,8 @@
+# https://github.com/efsbl/dotfiles/blob/92de4070cfc30342543e081ac9710e607fd2421f/.config/alacritty/alacritty.toml.default
+
+window:
+  startup_mode: Maximized
+
 # Font configuration (changes require restart)
 font:
   normal:
