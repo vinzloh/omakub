@@ -2,14 +2,24 @@
 -- Use nvim-treesitter-context plugin to achieve sticky context like VSCode's sticky scroll
 
 return {
-	{
-		"nvim-treesitter/nvim-treesitter-context",
-		event = "VeryLazy",
-		enabled = true,
-		opts = {
-
-			-- mode = "cursor", max_lines = 3
-
+	"nvim-treesitter/nvim-treesitter-context",
+	event = "LazyFile",
+	opts = function()
+		local tsc = require("treesitter-context")
+		Snacks.toggle({
+			name = "Treesitter Context",
+			get = tsc.enabled,
+			set = function(state)
+				if state then
+					tsc.enable()
+				else
+					tsc.disable()
+				end
+			end,
+		}):map("<leader>ut")
+		return {
+			-- mode = "cursor",
+			-- max_lines = 3
 			enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 			multiwindow = false, -- Enable multiwindow support.
 			max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -23,6 +33,6 @@ return {
 			separator = nil,
 			zindex = 20, -- The Z-index of the context window
 			on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
-		}, -- Customize as needed
-	},
+		}
+	end,
 }
