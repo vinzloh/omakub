@@ -29,6 +29,9 @@ if [ ! -d "$HOME/.config/nvim" ]; then
   # Snacks tweaks
   cp ~/.local/share/omakub/configs/neovim/snacks.lua ~/.config/nvim/lua/plugins/
 
+  # grug-far tweaks
+  cp ~/.local/share/omakub/configs/neovim/grug-far.lua ~/.config/nvim/lua/plugins/
+
   # Git blame
   cp ~/.local/share/omakub/configs/neovim/git-blame.lua ~/.config/nvim/lua/plugins/
 
